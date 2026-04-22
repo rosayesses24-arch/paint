@@ -109,7 +109,20 @@ public class PaintBasico extends JFrame {
                 public void mousePressed(MouseEvent e) {
                     x1 = e.getX();
                     y1 = e.getY();
+                    if (herramienta.equals("PINCEL") || herramienta.equals("BORRADOR")) {
+                        g2.setStroke(new BasicStroke(grosor));
+
+                        if (herramienta.equals("BORRADOR")) {
+                            g2.setColor(Color.WHITE);
+                        } else {
+                            g2.setColor(colorActual);
+                        }
+
+                        g2.drawLine(x1, y1, x1, y1);
+                        repaint();
                 }
+                    
+             }
 
                 public void mouseReleased(MouseEvent e) {
                     x2 = e.getX();
